@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from project320 import func_320_soliyev, func_ilyas
 
+<<<<<<< HEAD
 app = FastAPI(
     title="MMM",
     version="1.0.0",
@@ -47,3 +48,10 @@ def post_soliyev(data: TwoNumbers):
 if __name__ == "__main__":
     print(func_320_soliyev(3, 5))
     print(func_ilyas(3, 4))
+=======
+print(func_320_soliyev(3,5))
+print(func_ilyas(3,4))
+
+from funcartur import artur
+print(artur(6,3))
+>>>>>>> cec062c053f5070e54f6b0f8178d8d63d9ed3602
