@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from project320 import func_320_soliyev, func_ilyas
 
 app = FastAPI(
-    title="MMM",
+    title="Soliyev",
     version="1.0.0",
     description="Платформа для покупки и продажи",
     docs_url="/docs",
