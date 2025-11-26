@@ -1,6 +1,10 @@
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from project320 import func_320_soliyev, func_ilyas
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
 
 app = FastAPI(
     title="Soliyev",
@@ -9,7 +13,6 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
 )
-
 
 def c2(x: float, y: float) -> float:
     return (x**2 + y**2) ** 0.5
@@ -21,6 +24,9 @@ class TwoNumbers(BaseModel):
     x: float
     y: float
 
+@app.get("/", response_class=HTMLResponse)
+def read_index():
+    return (BASE_DIR / "index.html").read_text(encoding="utf-8")
 
 @app.get("/c2")
 def get_c2(x: float, y: float):
@@ -30,7 +36,6 @@ def get_c2(x: float, y: float):
 def get_soliyev(x: float, y: float):
     return {"result": func_soliyev(x, y)}
 
-
 @app.post("/c2")
 def post_c2(data: TwoNumbers):
     return {"result": c2(data.x, data.y)}
@@ -38,7 +43,6 @@ def post_c2(data: TwoNumbers):
 @app.post("/soliyev")
 def post_soliyev(data: TwoNumbers):
     return {"result": func_soliyev(data.x, data.y)}
-
 
 if __name__ == "__main__":
     print(func_320_soliyev(3, 5))
