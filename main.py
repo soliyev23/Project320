@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
-import project320 as p
+import functions as p
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -34,6 +34,10 @@ def get_soliyev(x: float, y: float):
 def get_artur(x: float, y: float):
     return {"result": p.artur(x,y)}
 
+@app.get("/inoyatov")
+def get_inoyatov(x: float, y: float ):
+    return {"result":p.inoyatov(x, y)}
+
 @app.post("/ilyas")
 def post_ilyas(data: TwoNumbers):
     return {"result": p.func_ilyas(data.x, data.y)}
@@ -45,8 +49,17 @@ def post_soliyev(data: TwoNumbers):
 @app.post("/artur")
 def post_artur(data: TwoNumbers):
     return {"result": p.artur(data.x, data.y)}
+    
+@app.post("/inoyatov")
+def post_inoyatov(data: TwoNumbers):
+    return {"result": p.inoyatov(data.x, data.y)}
 
 
 if __name__ == "__main__":
     print(p.func_320_soliyev(3, 5))
     print(p.func_ilyas(3, 4))
+    print(p.func_320_soliyev(3, 5))
+    print(p.func_ilyas(3, 4))
+    print(p.inoyatov(25, 5))
+
+
