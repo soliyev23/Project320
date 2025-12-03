@@ -4,6 +4,7 @@ from pydantic import BaseModel
 import functions as p
 from pathlib import Path
 
+
 BASE_DIR = Path(__file__).resolve().parent
 
 app = FastAPI(
@@ -55,11 +56,20 @@ def post_inoyatov(data: TwoNumbers):
     return {"result": p.inoyatov(data.x, data.y)}
 
 
+@app.get("/Shakirjanov")
+def get_p1(x: float, y: float):
+    return {"result": p.p1(x, y)}
+
+@app.post("/Shakirjanov")
+def post_p1(data: TwoNumbers):
+    return {"result": p.p1(data.x,data.y)}
+
 if __name__ == "__main__":
     print(p.func_320_soliyev(3, 5))
     print(p.func_ilyas(3, 4))
     print(p.func_320_soliyev(3, 5))
     print(p.func_ilyas(3, 4))
     print(p.inoyatov(25, 5))
+    print(p.p1(2,3))
 
 

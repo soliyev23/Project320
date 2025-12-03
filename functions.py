@@ -12,3 +12,8 @@ def artur(x, y):
     
 def inoyatov (x,y):
     return (x/y)
+
+def p1(x,y):
+    return x*6+y*7
+
+
