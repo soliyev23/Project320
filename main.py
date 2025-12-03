@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
-from project320 import func_320_soliyev, func_ilyas
+import project320 as p
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -14,12 +14,6 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
-def c2(x: float, y: float) -> float:
-    return (x**2 + y**2) ** 0.5
-
-def func_soliyev(x: float, y: float) -> float:
-    return x * y
-
 class TwoNumbers(BaseModel):
     x: float
     y: float
@@ -28,22 +22,31 @@ class TwoNumbers(BaseModel):
 def read_index():
     return (BASE_DIR / "index.html").read_text(encoding="utf-8")
 
-@app.get("/c2")
-def get_c2(x: float, y: float):
-    return {"result": c2(x, y)}
+@app.get("/ilyas")
+def get_ilyas(x: float, y: float):
+    return {"result": p.func_ilyas(x, y)}
 
 @app.get("/soliyev")
 def get_soliyev(x: float, y: float):
-    return {"result": func_soliyev(x, y)}
+    return {"result": p.func_320_soliyev(x, y)}
 
-@app.post("/c2")
-def post_c2(data: TwoNumbers):
-    return {"result": c2(data.x, data.y)}
+@app.get("Artur")
+def get_artur(x: float, y: float):
+    return {"result": p.artur(x,y)}
+
+@app.post("/ilyas")
+def post_ilyas(data: TwoNumbers):
+    return {"result": p.func_ilyas(data.x, data.y)}
 
 @app.post("/soliyev")
 def post_soliyev(data: TwoNumbers):
-    return {"result": func_soliyev(data.x, data.y)}
+    return {"result": p.func_320_soliyev(data.x, data.y)}
+
+@app.post("/artur")
+def post_artur(data: TwoNumbers):
+    return {"result": p.artur(data.x, data.y)}
+
 
 if __name__ == "__main__":
-    print(func_320_soliyev(3, 5))
-    print(func_ilyas(3, 4))
+    print(p.func_320_soliyev(3, 5))
+    print(p.func_ilyas(3, 4))
