@@ -71,5 +71,3 @@ if __name__ == "__main__":
     print(p.func_ilyas(3, 4))
     print(p.inoyatov(25, 5))
     print(p.p1(2,3))
-
-
