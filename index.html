@@ -333,32 +333,32 @@
   <div class="particles" id="particles"></div>
 
   <div class="card">
-    <h1>SOLIYEV SYSTEM</h1>
-    <p class="subtitle">Интерфейс вычислений</p>
+    <h1>Soliyev Calculation Platform</h1>
+    <p class="subtitle">Интерфейс математических вычислений</p>
 
     <div class="row">
       <div class="input-group">
-        <label for="x">Параметр X</label>
+        <label for="x">Значение X</label>
         <input type="number" id="x" placeholder="0.0" step="any" />
       </div>
       <div class="input-group">
-        <label for="y">Параметр Y</label>
+        <label for="y">Значение Y</label>
         <input type="number" id="y" placeholder="0.0" step="any" />
       </div>
     </div>
 
     <div class="input-group">
-      <label for="operation">Протокол</label>
+      <label for="operation">Метод вычисления</label>
       <select id="operation">
-        <option value="c2">Ilyas-Вычислить гипотенузу</option>
-        <option value="soliyev">Soliyev-Умножение чисел</option>
-        <option value="artur">Artur-Что больше: X?</option>
-        <option value="inoyatov">Inoyatov-Деление чисел</option>
-        <option value="Shakirjanov">Shakirjanov function-(x*6+y*7)</option>
+        <option value="c2">Вычисление гипотенузы</option>
+        <option value="soliyev">Умножение чисел</option>
+        <option value="artur">Сравнение значений</option>
+        <option value="inoyatov">Деление чисел</option>
+        <option value="Shakirjanov">Линейная функция: 6x + 7y</option>
       </select>
     </div>
 
-    <button id="calculateBtn">ИНИЦИАЛИЗИРОВАТЬ</button>
+    <button id="calculateBtn">Рассчитать</button>
 
     <div class="result-box" id="resultBox" style="display: none;">
       <div class="result-label">Результат вычисления</div>
@@ -368,7 +368,7 @@
     <div class="error" id="errorBox" style="display: none;"></div>
 
     <div class="api-base">
-      Связь с ядром: <span id="apiStatus">Ожидание...</span>
+      Статус сервера: <span id="apiStatus">подключено:</span>
     </div>
   </div>
 
